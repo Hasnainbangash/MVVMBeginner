@@ -29,7 +29,9 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(items) { item in
-                    Text(item.name)
+                    NavigationLink(destination: Text("Destination \(item.name)"), label: {
+                        Text(item.name)
+                    })
                 } //: LOOP
                 .onDelete { indexSet in
                     for index in indexSet {
