@@ -31,4 +31,10 @@ class TodoListManager: ObservableObject {
             items.remove(at: index)
         }
     }
+    
+    static func emptyState() -> TodoListManager {
+        let manager = TodoListManager()
+        manager.items = []
+        return manager
+    }
 }
