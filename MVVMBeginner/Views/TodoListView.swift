@@ -17,7 +17,7 @@ struct TodoListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
+                ForEach(todoManager.items) { item in
                     NavigationLink(destination: Text("Destination \(item.name)"), label: {
                         Text(item.name)
                     })
@@ -28,7 +28,7 @@ struct TodoListView: View {
                     }
                 }
                 .onMove { indices, newOffset in
-                    items.move(fromOffsets: indices, toOffset: newOffset)
+                    todoManager.move(indices: indices, newOffset: newOffset)
                 }
             } //: LIST
             .navigationBarTitle("Todo's", displayMode: .large)

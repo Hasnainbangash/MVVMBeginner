@@ -17,4 +17,8 @@ class TodoListManager: ObservableObject {
     init() {
         //get my data and set to my items array
     }
+    
+    func move(indices: IndexSet, newOffset: Int) {
+        items.move(fromOffsets: indices, toOffset: newOffset)
+    }
 }
