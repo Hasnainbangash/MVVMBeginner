@@ -39,4 +39,14 @@ class TodoListManager: ObservableObject {
         manager.items = []
         return manager
     }
+    
+    static func fullState() -> TodoListManager {
+        let manager = TodoListManager(isForTest: true)
+        manager.items = [
+            Item(id: UUID(), name: "first"),
+            Item(id: UUID(), name: "second"),
+            Item(id: UUID(), name: "third")
+        ]
+        return manager
+    }
 }
