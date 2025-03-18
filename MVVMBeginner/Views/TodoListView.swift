@@ -37,7 +37,7 @@ struct TodoListView: View {
                     EditButton()
                     
                     Button(action: {
-                        items.append(Item(id: UUID(), name: "newly added"))
+                        todoManager.addItem()
                     }, label: {
                         Image(systemName: "plus")
                     }) //: BUTTON

@@ -21,4 +21,8 @@ class TodoListManager: ObservableObject {
     func move(indices: IndexSet, newOffset: Int) {
         items.move(fromOffsets: indices, toOffset: newOffset)
     }
+    
+    func addItem() {
+        items.append(Item(id: UUID(), name: "newly added"))
+    }
 }
