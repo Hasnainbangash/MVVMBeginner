@@ -8,11 +8,7 @@
 import Foundation
 
 class TodoListManager: ObservableObject {
-    @Published var items: [Item] = [
-        Item(id: UUID(), name: "first"),
-        Item(id: UUID(), name: "second"),
-        Item(id: UUID(), name: "third")
-    ]
+    @Published var items: [Item] = []
     
     init(isForTest: Bool = false) {
         if (isForTest) {
