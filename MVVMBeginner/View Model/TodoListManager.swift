@@ -14,8 +14,10 @@ class TodoListManager: ObservableObject {
         Item(id: UUID(), name: "third")
     ]
     
-    init() {
-        //get my data and set to my items array
+    init(isForTest: Bool = false) {
+        if (isForTest) {
+            //get my data and set to my items array
+        }
     }
     
     func move(indices: IndexSet, newOffset: Int) {
@@ -33,7 +35,7 @@ class TodoListManager: ObservableObject {
     }
     
     static func emptyState() -> TodoListManager {
-        let manager = TodoListManager()
+        let manager = TodoListManager(isForTest: true)
         manager.items = []
         return manager
     }
