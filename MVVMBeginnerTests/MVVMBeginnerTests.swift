@@ -24,6 +24,16 @@ final class MVVMBeginnerTests: XCTestCase {
         // Any test you write for XCTest can be annotated as throws and async.
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        
+        // Testing for the empty list
+        let manager = TodoListManager.emptyState()
+        
+        XCTAssertTrue(manager.items.count == 0, "should start with empty list of todo's")
+        
+        // Adding the new item to the list and then testing
+        manager.addItem()
+        
+        XCTAssertTrue(manager.items.count == 1, "should have one todo after adding")
     }
 
     func testPerformanceExample() throws {
