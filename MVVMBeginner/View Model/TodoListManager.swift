@@ -25,4 +25,10 @@ class TodoListManager: ObservableObject {
     func addItem() {
         items.append(Item(id: UUID(), name: "newly added"))
     }
+    
+    func delete(at indexSet: IndexSet) {
+        for index in indexSet {
+            items.remove(at: index)
+        }
+    }
 }

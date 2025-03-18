@@ -23,9 +23,7 @@ struct TodoListView: View {
                     })
                 } //: LOOP
                 .onDelete { indexSet in
-                    for index in indexSet {
-                        items.remove(at: index)
-                    }
+                    todoManager.delete(at: indexSet)
                 }
                 .onMove { indices, newOffset in
                     todoManager.move(indices: indices, newOffset: newOffset)
