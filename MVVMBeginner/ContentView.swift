@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-// MARK: - ITEM MODEL
-
-struct Item: Identifiable {
-    var id: UUID
-    var name: String
-}
-
 struct ContentView: View {
     // MARK: - PROPERTIES
     
