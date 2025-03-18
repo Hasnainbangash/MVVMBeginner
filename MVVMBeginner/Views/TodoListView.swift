@@ -16,19 +16,26 @@ struct TodoListView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(todoManager.items) { item in
-                    NavigationLink(destination: Text("Destination \(item.name)"), label: {
-                        Text(item.name)
-                    })
-                } //: LOOP
-                .onDelete { indexSet in
-                    todoManager.delete(at: indexSet)
+            ZStack {
+                List {
+                    ForEach(todoManager.items) { item in
+                        NavigationLink(destination: Text("Destination \(item.name)"), label: {
+                            Text(item.name)
+                        })
+                    } //: LOOP
+                    .onDelete { indexSet in
+                        todoManager.delete(at: indexSet)
+                    }
+                    .onMove { indices, newOffset in
+                        todoManager.move(indices: indices, newOffset: newOffset)
+                    }
+                } //: LIST
+                
+                if todoManager.items.count == 0 {
+                    Text("Please, start by adding items")
+                        .foregroundColor(.gray)
                 }
-                .onMove { indices, newOffset in
-                    todoManager.move(indices: indices, newOffset: newOffset)
-                }
-            } //: LIST
+            } //: ZSTACK
             .navigationBarTitle("Todo's", displayMode: .large)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
