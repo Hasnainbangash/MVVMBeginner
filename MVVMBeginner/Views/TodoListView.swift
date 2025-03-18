@@ -47,12 +47,12 @@ struct TodoListView: View {
 
 // MARK: - PREVIEW
 
-// Empty State Preview with item list empty
+// Empty State Preview with no data exists in item list
 #Preview("Empty State") {
     TodoListView(todoManager: TodoListManager.emptyState())
 }
 
-// Full State Preview with item list full
-#Preview("Full State") {
+// Full State Preview with data exists in item list
+#Preview("Data Exits") {
     TodoListView(todoManager: TodoListManager.fullState())
 }
