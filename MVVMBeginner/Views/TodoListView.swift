@@ -7,14 +7,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TodoListView: View {
     // MARK: - PROPERTIES
     
-    @State var items: [Item] = [
-        Item(id: UUID(), name: "first"),
-        Item(id: UUID(), name: "second"),
-        Item(id: UUID(), name: "third")
-    ]
+    @ObservedObject var todoManager: TodoListManager
     
     // MARK: - BODY
     
@@ -55,6 +51,6 @@ struct ContentView: View {
 
 #Preview {
     Group {
-        ContentView()
+        TodoListView(todoManager: TodoListManager())
     }
 }
